@@ -17,7 +17,7 @@
     "issued": "31 May 2026",
     "status": "valid"
   },
-   {
+  {
     "id": "ICORP-INT-0009",
     "name": "Nana Akua",
     "track": "DevOps Internship Program",
@@ -26,13 +26,22 @@
     "issued": "31 May 2026",
     "status": "valid"
   },
-   {
+  {
     "id": "ICORP-INT-0010",
     "name": "Jennifer Adanse-Bonnah",
     "track": "DevOps Internship Program",
     "start": "1 March 2026",
     "end": "31 May 2026",
     "issued": "31 May 2026",
+    "status": "valid"
+  },
+  {
+    "id": "ICORP-INT-0011",
+    "name": "Kwame Mensah",
+    "track": "DevOps Internship Program",
+    "start": "1 June 2026",
+    "end": "31 August 2026",
+    "issued": "31 August 2026",
     "status": "valid"
   }
 ]
