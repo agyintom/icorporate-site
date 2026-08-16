@@ -38,12 +38,16 @@
   "address": [
     {
       "@type": "PostalAddress",
+      "streetAddress": "Biebricher Str. 15",
+      "postalCode": "12053",
       "addressLocality": "Berlin",
       "addressCountry": "DE"
     },
     {
       "@type": "PostalAddress",
+      "streetAddress": "Abelenkpe Road, 40",
       "addressLocality": "Accra",
+      "addressRegion": "Greater Accra Region",
       "addressCountry": "GH"
     }
   ],
@@ -596,6 +600,61 @@
 
   ::selection{background:rgba(79,209,197,0.25); color:var(--text);}
 
+  /* ---------- business outcomes ---------- */
+  .outcomes-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:16px;
+  }
+  .outcome-card{
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+    background:var(--bg-panel);
+    display:flex;
+    flex-direction:column;
+  }
+  .outcome-visual{
+    aspect-ratio:1/1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    background:
+      radial-gradient(120px 120px at 50% 40%, rgba(79,209,197,0.16), transparent),
+      var(--bg-panel-2);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .outcome-visual::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background-image:
+      linear-gradient(var(--line-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size:20px 20px;
+    opacity:0.5;
+  }
+  .outcome-visual svg{position:relative; z-index:1; color:var(--accent);}
+  .outcome-body{padding:24px;}
+  .outcome-body h3{
+    font-family:var(--font-display);
+    font-size:19px;
+    font-weight:600;
+    margin-bottom:10px;
+    line-height:1.25;
+  }
+  .outcome-body p{
+    color:var(--text-dim);
+    font-size:13.5px;
+  }
+  @media (max-width:900px){
+    .outcomes-grid{grid-template-columns:repeat(2, 1fr);}
+  }
+  @media (max-width:520px){
+    .outcomes-grid{grid-template-columns:1fr;}
+  }
+
   /* ---------- certifications trust bar ---------- */
   .certs-section{
     padding:48px 0;
@@ -897,7 +956,57 @@
             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 13L7 9L10 12L15 6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 6H15V10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
           <h3>Straight technical answers</h3>
-          <p>Scoped honestly against what a system actually needs no inflated timelines, no upsells.</p>
+          <p>Scoped honestly against what a system actually needs — no inflated timelines, no upsells.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="outcomes">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="section-tag">BUSINESS OUTCOMES</span>
+          <h2>What changes once we're in.</h2>
+        </div>
+      </div>
+
+      <div class="outcomes-grid">
+        <div class="outcome-card">
+          <div class="outcome-visual">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 4L40 11V23C40 33 33 40 24 44C15 40 8 33 8 23V11L24 4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M17 23L22 28L32 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="outcome-body">
+            <h3>Reduced Operational Risk</h3>
+            <p>Minimize downtime with resilient architecture and predictable operations.</p>
+          </div>
+        </div>
+        <div class="outcome-card">
+          <div class="outcome-visual">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="12" y="21" width="24" height="18" rx="2" stroke="currentColor" stroke-width="2"/><path d="M17 21V15C17 10.5817 20.5817 7 25 7C29.4183 7 33 10.5817 33 15V21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="24" cy="29" r="2.5" fill="currentColor"/></svg>
+          </div>
+          <div class="outcome-body">
+            <h3>Improved Security Posture</h3>
+            <p>Strengthen identity, access, and threat defense across your environment.</p>
+          </div>
+        </div>
+        <div class="outcome-card">
+          <div class="outcome-visual">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 38L18 26L26 34L42 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 18H42V28" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="outcome-body">
+            <h3>Faster Release Cycles</h3>
+            <p>Ship more often with pipelines that catch problems before production does.</p>
+          </div>
+        </div>
+        <div class="outcome-card">
+          <div class="outcome-visual">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="30" width="10" height="10" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="19" y="20" width="10" height="20" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="30" y="8" width="10" height="32" rx="1.5" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <div class="outcome-body">
+            <h3>Scalable, Future-Ready Infrastructure</h3>
+            <p>Systems built to support tomorrow's services and growth, not just today's.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1030,7 +1139,7 @@
         <div class="approach-item">
           <span class="approach-num">01 — ASSESS</span>
           <h3>Understand the system as it is</h3>
-          <p>We map what's running today infrastructure, pipelines, and gaps before proposing anything new.</p>
+          <p>We map what's running today — infrastructure, pipelines, and gaps before proposing anything new.</p>
         </div>
         <div class="approach-item">
           <span class="approach-num">02 — BUILD</span>
@@ -1052,7 +1161,7 @@
         <div class="training-copy">
           <span class="section-tag">SVC / 04</span>
           <h2>Training that outlasts the engagement.</h2>
-          <p>Most consultancies leave a system behind. We leave a team that can run it through structured sessions built around your actual stack, not generic material.</p>
+          <p>Most consultancies leave a system behind. We leave a team that can run it — through structured sessions built around your actual stack, not generic material.</p>
           <a href="#contact" class="btn-ghost">Ask about training →</a>
         </div>
         <div class="training-tracks">
@@ -1077,11 +1186,11 @@
       <div class="faq-list">
         <details class="faq-item">
           <summary>What does a typical engagement look like?</summary>
-          <p>Every engagement runs the same three stages: assess what's running today, build to a defined standard, then stay through stabilization and train your team whether it's a one-week audit or a multi-month build.</p>
+          <p>Every engagement runs the same three stages: assess what's running today, build to a defined standard, then stay through stabilization and train your team — whether it's a one-week audit or a multi-month build.</p>
         </details>
         <details class="faq-item">
           <summary>Do you work alongside our existing team, or fully take over?</summary>
-          <p>Both. Engagements can be scoped as embedded support alongside your engineers, or as a fully managed build-and-run mandate whatever fits how your team already operates.</p>
+          <p>Both. Engagements can be scoped as embedded support alongside your engineers, or as a fully managed build-and-run mandate — whatever fits how your team already operates.</p>
         </details>
         <details class="faq-item">
           <summary>Which cloud providers and platforms do you support?</summary>
@@ -1089,11 +1198,11 @@
         </details>
         <details class="faq-item">
           <summary>Do you only do cloud work, or on-prem as well?</summary>
-          <p>Both. Many engagements are hybrid by design some workloads staying on-prem for cost, compliance, or latency reasons, others migrating to cloud.</p>
+          <p>Both. Many engagements are hybrid by design — some workloads staying on-prem for cost, compliance, or latency reasons, others migrating to cloud.</p>
         </details>
         <details class="faq-item">
           <summary>How is training delivered?</summary>
-          <p>Hands-on sessions built around your actual stack, not generic slides delivered remotely or on-site, depending on what works for your team.</p>
+          <p>Hands-on sessions built around your actual stack, not generic slides — delivered remotely or on-site, depending on what works for your team.</p>
         </details>
         <details class="faq-item">
           <summary>How fast do you respond to new enquiries?</summary>
@@ -1106,13 +1215,13 @@
   <section class="section" id="contact">
     <div class="wrap">
       <div class="cta-panel">
-        <h2>Have a system that needs building or fixing?</h2>
+        <h2>Have a system that needs building — or fixing?</h2>
         <p>Tell us what you're running and where it's headed. We'll reply with a straight read on scope, not a sales pitch.</p>
         <div class="cta-row">
           <a href="mailto:admin@icorporate.net" class="btn">Email admin@icorporate.net</a>
         </div>
         <div class="contact-meta">
-          <div><span class="k">BASED IN</span><span class="v">Accra, Ghana - Berlin, Germany</span></div>
+          <div><span class="k">BASED IN</span><span class="v">Abelenkpe Road, 40, Accra, Greater Accra Region, Ghana<br>Biebricher Str. 15, 12053 Berlin, Germany</span></div>
           <div><span class="k">WORKS WITH</span><span class="v">Remote &amp; on-site, Africa &amp; EU-wide</span></div>
           <div><span class="k">RESPONSE TIME</span><span class="v">Within 1 business day</span></div>
         </div>
@@ -1158,8 +1267,8 @@
         <h4>CONTACT</h4>
         <ul>
           <li><a href="mailto:admin@icorporate.net">admin@icorporate.net</a></li>
-          <li><a href="#contact">Accra, Ghana</a></li>
-          <li><a href="#contact">Berlin, Germany</a></li>
+          <li><a href="#contact">Abelenkpe Road, 40, Accra, Ghana</a></li>
+          <li><a href="#contact">Biebricher Str. 15, 12053 Berlin, Germany</a></li>
         </ul>
       </div>
     </div>
