@@ -21,6 +21,7 @@
 <meta name="twitter:description" content="Infrastructure that stays quiet, so your team doesn't have to be loud about it.">
 <meta name="twitter:image" content="https://icorporate.net/og-image.png">
 
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png">
 <link rel="apple-touch-icon" href="/favicon.png">
 
@@ -91,7 +92,7 @@
   a{color:inherit; text-decoration:none;}
   ul{list-style:none;}
   img{max-width:100%; display:block;}
-  section{position:relative;}
+  section{position:relative; scroll-margin-top:88px;}
 
   :focus-visible{
     outline:2px solid var(--accent);
@@ -145,12 +146,7 @@
     font-weight:600;
     letter-spacing:0.02em;
   }
-  .logo .dot{
-    width:8px; height:8px;
-    border-radius:50%;
-    background:var(--accent);
-    box-shadow:0 0 0 3px rgba(79,209,197,0.15);
-  }
+  .logo svg{width:26px; height:26px; flex-shrink:0;}
   nav{display:flex; align-items:center; gap:36px;}
   nav ul{display:flex; gap:28px;}
   nav a{
@@ -180,12 +176,37 @@
     0%,100%{opacity:1; box-shadow:0 0 0 0 rgba(79,209,197,0.5);}
     50%{opacity:0.6; box-shadow:0 0 0 4px rgba(79,209,197,0);}
   }
-  .nav-toggle{display:none; background:none; border:none; color:var(--text); cursor:pointer;}
+  .nav-toggle{
+    display:none;
+    background:none;
+    border:1px solid var(--line);
+    border-radius:6px;
+    color:var(--text);
+    cursor:pointer;
+    width:38px; height:38px;
+    align-items:center;
+    justify-content:center;
+  }
+  .mobile-menu{
+    display:none;
+    flex-direction:column;
+    padding:8px 32px 20px;
+    border-top:1px solid var(--line-soft);
+    background:rgba(11,18,32,0.98);
+  }
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{
+    padding:14px 0;
+    font-size:15px;
+    color:var(--text-dim);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .mobile-menu a:last-child{border-bottom:none;}
 
   @media (max-width:860px){
     nav ul{display:none;}
     .nav-status{display:none;}
-    .nav-toggle{display:block;}
+    .nav-toggle{display:flex;}
   }
 
   /* ---------- hero ---------- */
@@ -574,6 +595,174 @@
   .footer-links a:hover{color:var(--text-dim);}
 
   ::selection{background:rgba(79,209,197,0.25); color:var(--text);}
+
+  /* ---------- certifications trust bar ---------- */
+  .certs-section{
+    padding:48px 0;
+    border-top:1px solid var(--line-soft);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .certs-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .cert-badge{
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--text-dim);
+    border:1px solid var(--line);
+    background:var(--bg-panel);
+    padding:9px 14px;
+    border-radius:6px;
+    white-space:nowrap;
+  }
+
+  /* ---------- why iCorporate feature grid ---------- */
+  .why-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:24px;
+  }
+  .why-card{
+    padding:0;
+  }
+  .why-icon{
+    width:40px; height:40px;
+    border:1px solid var(--line);
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--accent);
+    margin-bottom:20px;
+  }
+  .why-card h3{
+    font-family:var(--font-display);
+    font-size:18px;
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  .why-card p{
+    color:var(--text-dim);
+    font-size:14px;
+  }
+  @media (max-width:900px){
+    .why-grid{grid-template-columns:repeat(2, 1fr); gap:32px;}
+  }
+  @media (max-width:560px){
+    .why-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- supported stack checklist ---------- */
+  .stack-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:var(--line-soft);
+    border:1px solid var(--line-soft);
+    border-radius:var(--radius);
+    overflow:hidden;
+  }
+  .stack-col{
+    background:var(--bg-panel);
+    padding:28px 32px;
+  }
+  .stack-col h3{
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--accent);
+    letter-spacing:0.06em;
+    margin-bottom:20px;
+  }
+  .stack-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:9px 0;
+    font-size:14px;
+    color:var(--text);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .stack-item:last-child{border-bottom:none;}
+  .stack-item svg{flex-shrink:0; color:var(--accent);}
+  @media (max-width:800px){
+    .stack-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- FAQ accordion ---------- */
+  .faq-list{
+    border-top:1px solid var(--line-soft);
+  }
+  .faq-item{
+    border-bottom:1px solid var(--line-soft);
+  }
+  .faq-item summary{
+    padding:24px 4px;
+    font-family:var(--font-display);
+    font-size:17px;
+    font-weight:500;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    list-style:none;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{
+    content:'+';
+    font-family:var(--font-mono);
+    font-size:20px;
+    color:var(--accent);
+    transition:transform 0.2s ease;
+    flex-shrink:0;
+    margin-left:20px;
+  }
+  .faq-item[open] summary::after{transform:rotate(45deg);}
+  .faq-item p{
+    padding:0 4px 24px;
+    color:var(--text-dim);
+    font-size:14.5px;
+    max-width:720px;
+  }
+
+  /* ---------- footer columns ---------- */
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr 1fr;
+    gap:40px;
+    padding:64px 0 40px;
+  }
+  .footer-brand .logo{margin-bottom:14px;}
+  .footer-brand p{
+    color:var(--text-dimmer);
+    font-size:13.5px;
+    max-width:260px;
+  }
+  .footer-col h4{
+    font-family:var(--font-mono);
+    font-size:11px;
+    color:var(--text-dimmer);
+    letter-spacing:0.06em;
+    margin-bottom:16px;
+  }
+  .footer-col ul{display:flex; flex-direction:column; gap:10px;}
+  .footer-col a{
+    font-size:13.5px;
+    color:var(--text-dim);
+    transition:color 0.2s ease;
+  }
+  .footer-col a:hover{color:var(--text);}
+  .footer-bottom{
+    border-top:1px solid var(--line-soft);
+    padding:24px 0;
+  }
+  @media (max-width:800px){
+    .footer-grid{grid-template-columns:1fr 1fr; gap:32px;}
+  }
+  @media (max-width:520px){
+    .footer-grid{grid-template-columns:1fr;}
+  }
 </style>
 </head>
 <body>
@@ -582,16 +771,37 @@
 
 <header>
   <div class="header-inner">
-    <div class="logo"><span class="dot" aria-hidden="true"></span> iCorporate</div>
+    <div class="logo">
+      <svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="400" cy="400" r="400" fill="#0B1220"/>
+        <circle cx="400" cy="400" r="290" fill="none" stroke="#4FD1C5" stroke-width="26"
+          stroke-linecap="round" stroke-dasharray="1680 1822" transform="rotate(-90 400 400)"/>
+        <circle cx="400" cy="110" r="30" fill="#4FD1C5"/>
+      </svg>
+      iCorporate
+    </div>
     <nav>
       <ul>
         <li><a href="#services">Services</a></li>
         <li><a href="#approach">Approach</a></li>
         <li><a href="#training">Training</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="nav-status"><span class="pulse" aria-hidden="true"></span> ALL SYSTEMS OPERATIONAL</div>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 4.5H16M2 9H16M2 13.5H16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
     </nav>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services">Services</a>
+    <a href="#approach">Approach</a>
+    <a href="#training">Training</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
   </div>
 </header>
 
@@ -600,7 +810,7 @@
     <div class="wrap">
       <span class="eyebrow">INFRASTRUCTURE &amp; PLATFORM ENGINEERING</span>
       <h1>Infrastructure that stays <em>quiet</em>, so your team doesn't have to be loud about it.</h1>
-      <p class="hero-sub">iCorporate designs, builds, and operates the systems underneath your product DevOps pipelines, platform engineering, cloud and on-prem infrastructure, and the training to run it all in-house.</p>
+      <p class="hero-sub">iCorporate designs, builds, and operates the systems underneath your product — DevOps pipelines, platform engineering, cloud and on-prem infrastructure, and the training to run it all in-house.</p>
       <div class="hero-cta">
         <a href="#contact" class="btn">Start a conversation →</a>
         <a href="#services" class="btn-ghost">See what we do</a>
@@ -622,12 +832,72 @@
           </div>
           <div class="status-cell">
             <div class="status-num">2</div>
-            <div class="status-label">Deployment models cloud &amp; on-prem</div>
+            <div class="status-label">Deployment models — cloud &amp; on-prem</div>
           </div>
           <div class="status-cell">
             <div class="status-num">24<span class="unit">/7</span></div>
             <div class="status-label">Operating mindset</div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="certs-section">
+    <div class="wrap">
+      <span class="section-tag">CERTIFIED &amp; ACCREDITED</span>
+      <div class="certs-row">
+        <span class="cert-badge">AWS Solutions Architect — Professional</span>
+        <span class="cert-badge">AWS DevOps Engineer — Professional</span>
+        <span class="cert-badge">Microsoft AZ-305 — Azure Solutions Architect</span>
+        <span class="cert-badge">Microsoft AZ-104 — Azure Administrator</span>
+        <span class="cert-badge">VMware VCP-DCV</span>
+        <span class="cert-badge">PECB ISO 27001 Lead Auditor</span>
+        <span class="cert-badge">ITIL v4 Foundation</span>
+        <span class="cert-badge">CompTIA Security+</span>
+        <span class="cert-badge">PRINCE2</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="why">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="section-tag">WHY ICORPORATE</span>
+          <h2>Built by someone who's run the pager.</h2>
+        </div>
+        <p>Not a slide deck — a working style shaped by 14+ years on real infrastructure.</p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 1L11 6.5L17 7.3L12.5 11.2L13.8 17L9 14L4.2 17L5.5 11.2L1 7.3L7 6.5L9 1Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Built by a practitioner</h3>
+          <p>14+ years hands-on across data centers, hybrid cloud, and Kubernetes — decisions come from experience, not theory.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="3" width="14" height="12" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M5 7H13M5 10H13M5 13H9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Documented, not tribal</h3>
+          <p>Every system handed over comes with runbooks your team can actually follow once we're gone.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 1.5L15.5 4V8.8C15.5 12.5 12.7 15 9 16.5C5.3 15 2.5 12.5 2.5 8.8V4L9 1.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Security-first by default</h3>
+          <p>ISO 27001 Lead Auditor background means security is designed in, not bolted on afterward.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 13L7 9L10 12L15 6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 6H15V10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Straight technical answers</h3>
+          <p>Scoped honestly against what a system actually needs — no inflated timelines, no upsells.</p>
         </div>
       </div>
     </div>
@@ -664,7 +934,7 @@
             <span class="status-pill"><span class="dot" aria-hidden="true"></span>ACTIVE</span>
           </div>
           <h3>Platform Solutions</h3>
-          <p>Internal platforms that give developers a paved road  Kubernetes environments, self-service tooling, and the guardrails that keep systems consistent as they scale.</p>
+          <p>Internal platforms that give developers a paved road — Kubernetes environments, self-service tooling, and the guardrails that keep systems consistent as they scale.</p>
           <div class="tag-row">
             <span class="tag">Kubernetes</span>
             <span class="tag">Platform tooling</span>
@@ -678,7 +948,7 @@
             <span class="status-pill"><span class="dot" aria-hidden="true"></span>ACTIVE</span>
           </div>
           <h3>Cloud &amp; On-Prem Infrastructure</h3>
-          <p>Infrastructure built for where your workloads actually need to live public cloud, on-prem data centers, or a hybrid of both, sized and secured correctly from day one.</p>
+          <p>Infrastructure built for where your workloads actually need to live — public cloud, on-prem data centers, or a hybrid of both, sized and secured correctly from day one.</p>
           <div class="tag-row">
             <span class="tag">Hybrid cloud</span>
             <span class="tag">Data center ops</span>
@@ -692,12 +962,53 @@
             <span class="status-pill"><span class="dot" aria-hidden="true"></span>ACTIVE</span>
           </div>
           <h3>Training &amp; Enablement</h3>
-          <p>Hands-on sessions that leave your team able to operate what we build no dependency on outside support once the engagement ends.</p>
+          <p>Hands-on sessions that leave your team able to operate what we build — no dependency on outside support once the engagement ends.</p>
           <div class="tag-row">
             <span class="tag">Workshops</span>
             <span class="tag">Runbooks</span>
             <span class="tag">Team enablement</span>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="stack">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="section-tag">WHAT WE WORK WITH</span>
+          <h2>Supported platforms and tooling.</h2>
+        </div>
+        <p>If it's not on this list, ask — chances are we've touched it.</p>
+      </div>
+
+      <div class="stack-grid">
+        <div class="stack-col">
+          <h3>CLOUD &amp; PLATFORMS</h3>
+          <div class="stack-item"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 7L5.5 10L11.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>AWS</div>
+          <div class="stack-item"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 7L5.5 10L11.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Microsoft Azure</div>
+          <div class="stack-item"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 7L5.5 10L11.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>VMware vSphere</div>
+          <div class="stack-item"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 7L5.5 10L11.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Kubernetes</div>
+          <div class="stack-item"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 7L5.5 10L11.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>On-prem / bare metal</div>
+          <div class="stack-item"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 7L5.5 10L11.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Hybrid cloud</div>
+        </div>
+        <div class="stack-col">
+          <h3>AUTOMATION &amp; DELIVERY</h3>
+          <div class="stack-item"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 7L5.5 10L11.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Terraform</div>
+          <div class="stack-item"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 7L5.5 10L11.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Ansible</div>
+          <div class="stack-item"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 7L5.5 10L11.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Docker</div>
+          <div class="stack-item"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 7L5.5 10L11.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>GitHub Actions</div>
+          <div class="stack-item"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 7L5.5 10L11.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>GitLab CI / Jenkins</div>
+          <div class="stack-item"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 7L5.5 10L11.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>ArgoCD / GitOps</div>
+        </div>
+        <div class="stack-col">
+          <h3>OPERATIONS &amp; SECURITY</h3>
+          <div class="stack-item"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 7L5.5 10L11.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Monitoring &amp; alerting</div>
+          <div class="stack-item"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 7L5.5 10L11.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>ISO 27001-aligned practices</div>
+          <div class="stack-item"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 7L5.5 10L11.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Incident response</div>
+          <div class="stack-item"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 7L5.5 10L11.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Backup &amp; disaster recovery</div>
+          <div class="stack-item"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 7L5.5 10L11.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>ITIL-based processes</div>
         </div>
       </div>
     </div>
@@ -719,7 +1030,7 @@
         <div class="approach-item">
           <span class="approach-num">01 — ASSESS</span>
           <h3>Understand the system as it is</h3>
-          <p>We map what's running today infrastructure, pipelines, and gaps before proposing anything new.</p>
+          <p>We map what's running today — infrastructure, pipelines, and gaps before proposing anything new.</p>
         </div>
         <div class="approach-item">
           <span class="approach-num">02 — BUILD</span>
@@ -741,7 +1052,7 @@
         <div class="training-copy">
           <span class="section-tag">SVC / 04</span>
           <h2>Training that outlasts the engagement.</h2>
-          <p>Most consultancies leave a system behind. We leave a team that can run it through structured sessions built around your actual stack, not generic material.</p>
+          <p>Most consultancies leave a system behind. We leave a team that can run it — through structured sessions built around your actual stack, not generic material.</p>
           <a href="#contact" class="btn-ghost">Ask about training →</a>
         </div>
         <div class="training-tracks">
@@ -754,10 +1065,48 @@
     </div>
   </section>
 
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="section-tag">FAQ</span>
+          <h2>Questions worth answering upfront.</h2>
+        </div>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>What does a typical engagement look like?</summary>
+          <p>Every engagement runs the same three stages: assess what's running today, build to a defined standard, then stay through stabilization and train your team — whether it's a one-week audit or a multi-month build.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do you work alongside our existing team, or fully take over?</summary>
+          <p>Both. Engagements can be scoped as embedded support alongside your engineers, or as a fully managed build-and-run mandate — whatever fits how your team already operates.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Which cloud providers and platforms do you support?</summary>
+          <p>AWS, Microsoft Azure, VMware, and Kubernetes, plus on-prem and hybrid environments. See the full list of supported platforms and tooling above.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do you only do cloud work, or on-prem as well?</summary>
+          <p>Both. Many engagements are hybrid by design — some workloads staying on-prem for cost, compliance, or latency reasons, others migrating to cloud.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How is training delivered?</summary>
+          <p>Hands-on sessions built around your actual stack, not generic slides — delivered remotely or on-site, depending on what works for your team.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How fast do you respond to new enquiries?</summary>
+          <p>Within 1 business day.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="contact">
     <div class="wrap">
       <div class="cta-panel">
-        <h2>Have a system that needs building or fixing?</h2>
+        <h2>Have a system that needs building — or fixing?</h2>
         <p>Tell us what you're running and where it's headed. We'll reply with a straight read on scope, not a sales pitch.</p>
         <div class="cta-row">
           <a href="mailto:admin@icorporate.net" class="btn">Email admin@icorporate.net</a>
@@ -773,15 +1122,66 @@
 </main>
 
 <footer>
-  <div class="wrap footer-inner">
-    <p>© 2026 iCorporate. All systems, our responsibility.</p>
-    <div class="footer-links">
-      <a href="#services">Services</a>
-      <a href="#approach">Approach</a>
-      <a href="#contact">Contact</a>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="400" cy="400" r="400" fill="#0B1220"/>
+            <circle cx="400" cy="400" r="290" fill="none" stroke="#4FD1C5" stroke-width="26"
+              stroke-linecap="round" stroke-dasharray="1680 1822" transform="rotate(-90 400 400)"/>
+            <circle cx="400" cy="110" r="30" fill="#4FD1C5"/>
+          </svg>
+          iCorporate
+        </div>
+        <p>Infrastructure that stays quiet, so your team doesn't have to be loud about it.</p>
+      </div>
+      <div class="footer-col">
+        <h4>SERVICES</h4>
+        <ul>
+          <li><a href="#services">DevOps &amp; CI/CD</a></li>
+          <li><a href="#services">Platform Solutions</a></li>
+          <li><a href="#services">Cloud &amp; On-Prem</a></li>
+          <li><a href="#training">Training</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>COMPANY</h4>
+        <ul>
+          <li><a href="#why">Why iCorporate</a></li>
+          <li><a href="#approach">Approach</a></li>
+          <li><a href="#stack">Tech Stack</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>CONTACT</h4>
+        <ul>
+          <li><a href="mailto:admin@icorporate.net">admin@icorporate.net</a></li>
+          <li><a href="#contact">Accra, Ghana</a></li>
+          <li><a href="#contact">Berlin, Germany</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom footer-inner">
+      <p>© 2026 iCorporate. All systems, our responsibility.</p>
     </div>
   </div>
 </footer>
 
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  navToggle.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
 </body>
 </html>
