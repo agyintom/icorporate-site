@@ -70,5 +70,14 @@
     "end": "31 July 2026",
     "issued": "31 July 2026",
     "status": "valid"
+  },
+  {
+    "id": "ICORP-INT-0015",
+    "name": "Kwame Seth",
+    "track": "DevOps Internship Program",
+    "start": "1 May 2026",
+    "end": "31 July 2026",
+    "issued": "31 July 2026",
+    "status": "valid"
   }
 ]
