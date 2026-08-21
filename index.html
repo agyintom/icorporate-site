@@ -600,6 +600,46 @@
 
   ::selection{background:rgba(79,209,197,0.25); color:var(--text);}
 
+  /* ---------- bootcamp section ---------- */
+  .bootcamp-panel{
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    background:var(--bg-panel);
+    padding:44px;
+  }
+  .bootcamp-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:32px;
+    flex-wrap:wrap;
+    margin-bottom:36px;
+    padding-bottom:36px;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .bootcamp-top p{color:var(--text-dim); font-size:15px; max-width:480px; margin-top:10px;}
+  .bootcamp-tags{display:flex; gap:10px; flex-wrap:wrap;}
+  .bootcamp-tag{
+    font-family:var(--font-mono); font-size:11px; color:var(--accent);
+    border:1px solid var(--line); padding:6px 14px; border-radius:20px;
+  }
+  .bootcamp-levels{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:20px;
+  }
+  .bc-level{border-top:1px solid var(--line-soft); padding-top:18px;}
+  .bc-level-num{font-family:var(--font-mono); font-size:12px; color:var(--accent); display:block; margin-bottom:10px;}
+  .bc-level h3{font-family:var(--font-display); font-size:17px; font-weight:600; margin-bottom:8px;}
+  .bc-level p{color:var(--text-dim); font-size:13.5px;}
+  @media (max-width:900px){
+    .bootcamp-levels{grid-template-columns:repeat(2, 1fr);}
+  }
+  @media (max-width:560px){
+    .bootcamp-levels{grid-template-columns:1fr;}
+    .bootcamp-panel{padding:28px;}
+  }
+
   /* ---------- containers / k8s section ---------- */
   .containers-intro{
     max-width:760px;
@@ -1000,6 +1040,7 @@
     <a href="#services">Services</a>
     <a href="#approach">Approach</a>
     <a href="#training">Training</a>
+    <a href="#bootcamp">Bootcamp</a>
     <a href="#faq">FAQ</a>
     <a href="#careers">Careers</a>
     <a href="#contact">Contact</a>
@@ -1398,7 +1439,7 @@
         <div class="training-copy">
           <span class="section-tag">SVC / 04</span>
           <h2>Training that outlasts the engagement.</h2>
-          <p>Most consultancies leave a system behind. We leave a team that can run it through structured sessions built around your actual stack, not generic material.</p>
+          <p>Most consultancies leave a system behind. We leave a team that can run it — through structured sessions built around your actual stack, not generic material.</p>
           <a href="#contact" class="btn-ghost">Ask about training →</a>
         </div>
         <div class="training-tracks">
@@ -1406,6 +1447,56 @@
           <div class="track"><span>CI/CD &amp; GitOps</span><span>TRK-02</span></div>
           <div class="track"><span>Cloud &amp; hybrid infrastructure</span><span>TRK-03</span></div>
           <div class="track"><span>Incident response &amp; on-call readiness</span><span>TRK-04</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="bootcamp">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="section-tag">TRAIN YOUR OWN TEAM</span>
+          <h2>The iCorporate DevOps &amp; Cloud Bootcamp.</h2>
+        </div>
+      </div>
+
+      <div class="bootcamp-panel">
+        <div class="bootcamp-top">
+          <div>
+            <h3 style="font-family:var(--font-display); font-size:22px; font-weight:600; margin-bottom:4px;">A 20-week hands-on program to build a full DevOps skillset.</h3>
+            <p>From Linux and Git fundamentals through Kubernetes, Terraform, and automated monitoring — every module ends with a real build, not a quiz. Graduates receive a QR-verified iCorporate certificate.</p>
+          </div>
+          <div class="bootcamp-tags">
+            <span class="bootcamp-tag">20 WEEKS</span>
+            <span class="bootcamp-tag">~15 HRS / WEEK</span>
+            <span class="bootcamp-tag">VERIFIED CERTIFICATE</span>
+          </div>
+        </div>
+
+        <a href="/iCorporate-DevOps-Bootcamp-Brochure.pdf" class="btn" style="display:inline-flex; margin-bottom:36px;" download>Download full curriculum (PDF) →</a>
+
+        <div class="bootcamp-levels">
+          <div class="bc-level">
+            <span class="bc-level-num">01 — WEEKS 1&ndash;3</span>
+            <h3>Foundations</h3>
+            <p>Linux fluency, Git workflows, and enough networking to reason about what's actually happening on the wire.</p>
+          </div>
+          <div class="bc-level">
+            <span class="bc-level-num">02 — WEEKS 4&ndash;7</span>
+            <h3>Cloud &amp; Containers</h3>
+            <p>Provisioning cloud infrastructure by hand, artifact management, and containerizing applications with Docker.</p>
+          </div>
+          <div class="bc-level">
+            <span class="bc-level-num">03 — WEEKS 8&ndash;14</span>
+            <h3>Core DevOps</h3>
+            <p>CI/CD pipelines, AWS &amp; Azure essentials, and container orchestration with Kubernetes — including on managed cloud.</p>
+          </div>
+          <div class="bc-level">
+            <span class="bc-level-num">04 — WEEKS 15&ndash;20</span>
+            <h3>Advanced Automation</h3>
+            <p>Terraform, Ansible, Python automation, and monitoring with Prometheus &amp; Grafana.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1604,6 +1695,7 @@
           <li><a href="#services">Platform Solutions</a></li>
           <li><a href="#services">Cloud &amp; On-Prem</a></li>
           <li><a href="#training">Training</a></li>
+          <li><a href="#bootcamp">DevOps Bootcamp</a></li>
         </ul>
       </div>
       <div class="footer-col">
